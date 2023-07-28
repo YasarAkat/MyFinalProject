@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,5 +24,14 @@ namespace Business.Concrete
             return _productDal.GetAll();
         }
 
+        public Product GetById(int productId)
+        {
+            return _productDal.Get(p=> p.ProductId == productId);
+        }
+
+        public List<ProductDetailDto> GetProductDetails()
+        {
+            return _productDal.GetProductDetails();
+        }
     }
 }
